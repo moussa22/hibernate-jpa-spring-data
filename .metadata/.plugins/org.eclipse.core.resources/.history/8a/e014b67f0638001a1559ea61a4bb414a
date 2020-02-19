@@ -1,0 +1,58 @@
+package com.sid;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.sid.dao.CategorieRepository;
+import com.sid.dao.ProduitRepository;
+import com.sid.enties.Categorie;
+import com.sid.enties.Produit;
+
+@SpringBootTest
+class DemoApplicationTests {
+	@Autowired
+	ProduitRepository produitdao;
+	@Autowired
+	CategorieRepository category;
+
+	@Test
+	void contextLoads() {
+		
+				
+	}
+
+
+	public void testSaveProduit() {
+		
+		Produit produit=getProduit();
+		
+	Produit p1=	produitdao.save(produit);
+	
+	Produit getproduit=produitdao.getOne(p1.getId());
+		
+		
+	}
+	
+	private Produit getProduit() {
+		
+		Categorie c=new Categorie("Ordinateur");
+		
+		
+		//c.setNomCategorie("Ordinateur");
+		
+		Produit p=new Produit();
+		
+		p.setDesignation("TX450");
+		
+		p.setPrix(5000);
+		
+		p.setQuantite(15);
+		
+		p.setCategorie(c);
+		
+		return p;
+	}
+	
+}
+

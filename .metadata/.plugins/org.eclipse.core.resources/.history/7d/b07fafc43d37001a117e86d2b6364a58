@@ -1,0 +1,17 @@
+package com.sid.enties;
+
+import java.io.Serializable;
+import java.util.Collection;
+
+public class Categorie implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
+	private Long id;
+	
+	private String nomCategorie;
+	
+	private Collection<Produit>produits;
+	
+
+}
